@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Add Book</h1>
+    <!-- Add a new customer -->
+    <div id="books">
+        
+    </div>
+
+    <h2>Add a new book</h2>
+    <p>Name:<input type="text" id="book_name" placeholder="ENTER BOOK NAME" required></p>
+    <p>Author:<input type="text" id="book_author" placeholder="ENTER BOOK AUTHOR" required></p>
+    <p>Year published:<input type="number" id="year_published" placeholder="ENTER YEAR PUBLISH" required></p>
+    <p>book_type:<input type="number" id="book_type" placeholder="ENTER BOOK TYPE" required></p>
+    <button onclick="newBook()">Add new book</button>
+    <!-- <input type="submit" value="Add book"> -->
+    <script>
+        const MY_SERVER = 'http://127.0.0.1:5000'
+        const newBook = async () => {
+            data = {
+                name: book_name.value,
+                author: book_author.value,
+                year_published: year_published.value,
+                book_type: book_type.value,
+
+            }
+            console.log(data);
+            // WE ARE SENDING THE DATA WITH THIS LINE!!!!
+            books = await axios.post(MY_SERVER + "/addNewBook", data)            
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update Customer</h1>
+    <!-- Add a new customer -->
+    <div id="customer">
+        
+    </div>
+
+    <h2>Update customer</h2>
+    <p>ID:<input type="text" id="id" placeholder="ENTER ID" required></p>
+    <p>Name:<input type="text" id="customer_name" value=${customer.name} required></p>
+    <p>City:<input type="text" id="customer_city" placeholder="ENTER YOUR CITY" required></p>
+    <p>Age:<input type="number" id="customer_age" placeholder="ENTER YOUR AGE" required></p>
+    <p>Mail:<input type="email" id="customer_mail" placeholder="ENTER YOUR MAIL" required></p>
+    <button onclick="updateCustomer()">Update customer</button>
+    <!-- <input type="submit" value="Add Customer"> -->
+    <script>
+
+
+        const MY_SERVER = 'http://127.0.0.1:5000'
+        const updateCustomer = async () => {
+            data = {
+                id : id.value,
+                name: customer_name.value,
+                city: customer_city.value,
+                age: customer_age.value,
+                mail: customer_mail.value,
+
+            }
+            console.log(data);
+            // WE ARE SENDING THE DATA WITH THIS LINE!!!!
+            customers = await axios.post(MY_SERVER + "/updateCustomer", data)
+
+        }
+
+    </script>
+</body>
+
+</html>
