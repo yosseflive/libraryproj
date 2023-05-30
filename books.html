@@ -15,7 +15,7 @@
     <h1>books</h1>
     <div id="myBooks"></div>
     <script>
-        const MY_SERVER = 'http://127.0.0.1:5000'
+        const MY_SERVER = 'https://libraryproj.onrender.com'
         const showbooks = async () => {
             const books = await axios.get(MY_SERVER + '/show-books');
             myBooks.innerHTML = `

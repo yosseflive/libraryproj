@@ -17,7 +17,7 @@
     <h1>customers</h1>
      <div id="myCustomers"></div>
     <script>
-        const MY_SERVER = 'http://127.0.0.1:5000'
+        const MY_SERVER = 'https://libraryproj.onrender.com'
         const showcustomers = async () => {
             const customers = await axios.get(MY_SERVER + '/show-customers');
             myCustomers.innerHTML = `
